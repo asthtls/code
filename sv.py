@@ -17,3 +17,9 @@ print("서버가 받는 데이터:",data.decode())
 print("보내온 아이피:",address[0])
 
 print("보내온 포트번호:",address[1])
+
+#텔로드론 군집비행을 위해 기본적인 소켓 공부
+#소켓의 기본적인 클라이언트와 서버의 통신 코드이므로 코드가 간단함.
+#참고 사이트
+#https://m.blog.naver.com/nonamed0000/221259426463
+#https://docs.python.org/ko/3/howto/sockets.html
