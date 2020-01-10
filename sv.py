@@ -4,7 +4,7 @@
 import socket
 
 #소켓 생성
-server = socket(AF_INET,SOCK_DGRAM) 
+server = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) 
 
 #서버 아이피 ,포트번호 고정
 server.bind(('192.168.1.1',7777))
