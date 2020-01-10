@@ -4,7 +4,7 @@
 import socket # 소켓모듈 import
 
 #소켓 생성
-client = socket(AF_INET,SOCK_DGRAM)   
+client = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)   
 
 #문자열 서버에 보내기
 
