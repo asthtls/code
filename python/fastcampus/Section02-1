@@ -20,3 +20,14 @@ print('T','E','S','T',sep='-') #공백대신 T-E-S-T 출력
 print("Welcome To",end='') #끝의 부분을 뒷 문장과 줄바꿈 없이 이어지게 사용
 print(" the Python",end='')
 print(" World") #Welcome To the Python World 출력
+
+# formmat [],{},()
+print('{} and {}'.format('Python','format')) #format안에 {}안에 들어갈 1번째, 2번째 한번에 지정가능 Python and format 출력
+print("{0} and {1} amd {0}".format("Python","Code")) #0번째에 Python, 1에는 Code 0,1로 2가지 지정해서 3개 사용
+print("{a} and {b}".format(a="i",b="am")) #a,b를 직접 지정
+print("{a} and {b}".format(b="am",a="i")) #직접지정이니 순서를 바꿔서 사용 가능
+
+# %s:문자 , %d: 정수, %f : 실수
+print("%s's favorite number is %d" %("LEE",77)) 
+
+#20200113 fastcampus python 강의 시작
