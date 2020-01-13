@@ -1,0 +1,22 @@
+# Section02-1강 fastcompus python print 
+
+# print 함수
+# 가장 기본적인 Output(출력) 함수
+
+print('Hello Python!') # '' 작은 따음표로도 실행가능
+print("Hello Python!") # " " 큰 따음표도 물론 가능
+print("""Hello Python!""") #정상적인 실행
+print('''Hello PYthon!''')
+
+print() #아무것도 입력을 안 할 시에는 한줄이 띄어짐. 줄바꿈용으로 사용 가능
+print("20200113")
+
+# sep
+print('T','E','S','T') #공백으로 나옴
+print('T','E','S','T',sep='') #공백없이 TEST로 나옴
+print('T','E','S','T',sep='-') #공백대신 T-E-S-T 출력
+
+# end
+print("Welcome To",end='') #끝의 부분을 뒷 문장과 줄바꿈 없이 이어지게 사용
+print(" the Python",end='')
+print(" World") #Welcome To the Python World 출력
