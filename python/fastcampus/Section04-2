@@ -1,0 +1,84 @@
+# Section 04-2 
+# fastcampus
+# ubuntu jupyter notebook python 3.8.1
+# 2020 01 14
+
+# 문자열, 문자열 연산, 슬라이싱
+
+str1 = "I am Man." # 공백 포함해서 9글자 
+str2 = 'NiceMan'
+str3 = '' # 공백의 경우 0글자로 나옴
+str4 = str('ace') # 문자열에 문자열('') 변수를 넣어도 3 . str ()자체는 0글자
+
+print(len(str1), len(str2), len(str3), len(str4)) # len은 글자가 얼마나 긴지 알 수 있는 명령어다. 많이 사용할 것이니 꼭 알아두자.
+
+escape_str1 = "Do you have a \"big collection\"" #  Do you have a "big collection" 을 출력하고 싶다면 escape문자를 사용해서 중간에 \을 넣는다.
+print(escape_str1)
+escape_str2 = "Tab\tTab\tTab" # \t을 사용하면 4칸의 공백만큼 이동
+print(escape_str2)
+
+# Raw String 
+raw_s1 = r'c:\Programs\Test\Bin' # r 안에서는 escape 문자 안먹힘  경로를 출력할 경우 사용
+print(raw_s1)
+raw_s2 = r"\\a\\a"  # r뒤에 문자열이 그대로 출력됨
+print(raw_s2)
+
+# 멀티라인
+multi = """ 문자열 멀티라인 테스트"""
+print(multi) # 가독성 좋게 바꾸고 싶다.
+
+# escape \쓰면 줄바꿔도 인식
+multi2 = \
+"""
+문자열
+
+멀티라인
+
+테스트
+
+"""
+print(multi2)
+
+# 문자열 연산
+str_o1 = '*'
+str_o2 = 'abc'
+str_o3 = 'def'
+str_o4 = "NiceMan"
+
+print(str_o1 * 100) # * 100개 출력
+print(len(str_o1 * 100)) # *100개가 맞게 출력되었는지 len 이용해 확인
+print(str_o2 + str_o3) # abc + def
+print(str_o1 * 3)
+print(str_o4) # NiceMan 출력
+print('a' in str_o4) # a라는 문자가 NiceMan 문자열 안에 포함되어 있는지 확인  = True
+print('b' in str_o4) # b라는 문자가 NiceMan 문자열 안에 포함되어 있는지 확인  = False
+print('b' not in str_o4) # b라는 문자가 NiceMan 문자열 안에 포함되어 있지 않은지 확인 = True
+
+# 문자열 형 변환
+print(str(77))  # 77가 str문자열로 변환
+print(str(77)+'a')# 확인을 위해 77문자열에 a를 붙여 확인
+print(str(10.4))
+
+# 문자열 함수
+# 참고 : https://www.w3schools.com/python/python_ref_string.asp
+
+a = 'niceman'
+b = 'orange'
+
+print(a.islower()) #  a 가 소문자로 이루어져 있는지 확인하는 함수 = True
+print(a.endswith('s')) # a가 s로 끝나니? = False 
+print(a.capitalize()) # a의 첫글자만 대문자로 출력
+print(a.replace('nice', 'good')) # nice를 good으로 대체하겠다. *많이 쓰이니 알아두자
+print(list(reversed(b))) # reversed의 경우 list로 묶어서 처리 orange가 뒤집어져서 e부터 시작
+
+# 주석처리하고 싶은 부분 드래그 후 ctrl / 풀고 싶다면 다시 
+
+a2 = 'niceman'
+b2 = 'orange'
+
+print(a2[0:4]) # 0 번째 글자부터 3번째 까지 출력 nice == a2<4 0,1,2,3
+print(a2[:]) # 전부 출력하고 싶을 시
+print(a2[0:len(a2)]) # 0번부터 len(a2)까지 len(a2)는 전체길이를 의미하니 전부 출력이다.
+print(b2[0:4:2]) # 0부터 3까지 2단계씩 띄어서 출력 0 2 o a
+print(b2[1:-2]) # 1번부터 뒤에서 2자리앞까지 즉 ran만 출력
+print(b2[::-1]) # 뒤에서부터 출력하고싶다면 전체 출력 + -1 뒤부터 출력을 넣는다. reversed명령어와 같다.
