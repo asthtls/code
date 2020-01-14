@@ -1,0 +1,97 @@
+# section 04-1 
+# fastcampus
+# ubuntu jupyter notebook python 3.8.1
+#2020 01 14 
+
+# 파이썬 데이터 타입 종류
+
+# Boolean   0,1
+# Numbers
+# String
+# Bytes
+# Lists 
+# Tuples
+# Sets
+# Dictionaries   Lists 부터 Dictionaries 집합 자료형
+
+s_str1 = "Very"
+b_bool = True
+b_booll = False
+s_str2 = "Good"
+f_float = 10.3
+i_int = 7
+d_dict = {
+    "name" : "LEE",   # 값들 사이 ,를 넣어 구분
+    "age" : 25
+}
+
+l_list = [3,5,7] # 다른 언어에서는 배열이라고 함
+t_tuple = 3,5,7
+s_set  = {7,8,9}
+
+print(type(l_list)) # type 함수를 사용해 list 함수가 list가 맞는지 확인
+print(type(t_tuple))
+print(type(s_set))
+
+# 파이썬 숫자형 및 연산자
+# +,-,*,/,//,%,**,단항 연산자
+
+# // 나누기 (몫)
+# ** 지수(제곱)
+
+i1 = 39
+i2 = 939
+big_int1 = 999999999999999999999999999999999
+big_int2 = 777777777777777777777777777777777
+f1 = 1.234
+f2 = 5.678
+f3 = .5 # 0.5의미
+f4 = 10. # 10.0의미
+f5 = 5
+
+print(i1 * i2)
+print(big_int1 * big_int2)
+print(f1 * f2)
+print(f3 + f4)
+print(f5 ** f5)
+
+result = f3 + f2
+print(result, type(result)) # f3 + f2 값과 result의 타입명이 나온다.
+
+a = 5. # 5.0
+b = 4
+c = 151
+print(type(a), type(b))
+result2 = a + b 
+print(result2, type(result2)) # 5.0 + 4이므로 변수 타입이 float형으로 나온다.
+
+# 형변환
+# int, float, complex(복소수)
+# 복소수 : 수를 확장하여 실수 외에 허수까지 포함하는 수
+
+print(int(result2)) # float 형 integer형으로 출력. = 9
+print(float(c)) # 는 float형으로 출력 151.0
+print(complex(3)) 
+print(int(True)) # True는 1로 형변환 해줌
+print(int(False)) # False는 0으로 형변환
+print(complex(False)) # False 의 값은 0이므로 0j
+
+# 단항 연산자
+y = 100
+y = y + 100 # 기본 y+방법
+y +=100  # 위의 식을 간단히
+print(y) # 100 + 100 + 100 = 300
+
+# 수치 연산 함수
+# https://docs.python.org/3/library/math.html  파이썬 기본 수학 함수 
+
+print(abs(-7))
+n, m = divmod(100,8) # 100을 8로 나눠서 출력 몫은 n에 나머지 값은 m에
+print(n , m)
+
+import math # 수학 관련 모듈 보통 import는 맨 위에 준다.
+
+print(math.ceil(5.1)) # 5.1보다 크면서 가장 작은 정수 = 6
+print(math.floor(3.874)) # 3.874보다 작으면서 가장 큰 정수
+
+
