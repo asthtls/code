@@ -1,0 +1,66 @@
+# section 02-2 python 
+# fastcampus 
+# 몸풀기 기본 코딩 실습 
+# ubuntu jupyter notebook
+
+# import this # 파이썬을 이렇게 쓰면 좋겠다는 설명문
+import sys 
+
+# 파이썬 기본 인코딩
+print(sys.stdin.encoding) # 입력 값은 utf-8이 기본이다
+print(sys.stdout.encoding) # 출력또한 utf-8
+
+# 출력문
+print("My name is Lee seoung woo")
+
+# 변수 선언
+myName = 'Goodboy' # 오른쪽의 Goodboy를 왼쪽 myName 변수에 할당
+print(myName) # Goodboy 출력
+
+# 조건문
+if myName == "Goodboy":  # myName 이 Goodboy 일 경우 print함수를 써서 맞다고 출력
+    print("myName = Goodboy") 
+    
+# 반복문
+for i in range(1,10):
+    for j in range(1,10):  # 구구단 반복문 1,10까지 반복 
+        print("%d * %d = " %(i,j), i*j) # %d안에는 i,j가 들어가고 = 뒤에 i*j값이 들어간다.
+
+# 변수 선언(한글)
+
+이름 = "이승우" # 한글은 추천 x
+
+# 출력
+print(이름)
+
+# 함수 선언
+
+def 선언(): #함수를 선언만 하고 실행을 안한다면 쓸모가 없다.
+    print("함수 선언.")
+
+# 실행
+선언()
+
+# 함수 선언
+def greeting():
+    print("Hello Python!")
+
+# 함수 실행
+greeting()
+
+# 클래스
+class Cookie():
+    pass
+
+# 객체 생성
+cookie = Cookie()
+
+print(id(cookie)) #id,dir 함수는 다음에.
+print(dir(cookie))
+
+# id(object)는 객체를 입력받아 객체의 고유 주소 값(레퍼런스)을 돌려주는 함수이다.
+# dir은 객체가 자체적으로 가지고 있는 변수나 함수를 보여 준다.
+
+# dir의 경우 리스트나 딕셔너리에서 자주 이용할 것 같다.
+
+# 2020 01 14 
