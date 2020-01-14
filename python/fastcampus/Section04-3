@@ -1,0 +1,102 @@
+# section 04-3 
+# fastcampus
+# ubuntu jupyter notebook python 3.8.1
+# 2020 01 14
+
+# List, Tuple
+# List = 배열, 그릇
+
+# 리스트(순서o, 중복o, 수정o, 삭제o) 꼭 암기
+# 선언
+
+a = []
+b = list()
+c = [1,2,3,10,4,]
+d = [10, 100, 'Pen', ' Banana', 'Orange']
+e = [10, 100 , ['Pen', 'Banana', 'Orange']] # 리스트 안에 리스트 넣기 중첩 리스트
+
+# 인덱싱
+print(d[3]) 
+print(d[-2])
+print(d[0]+d[1]) # 10 + 100
+print(e[2][1])
+print(e[-1][-2]) # 2차원 배열로 리스트안의 리스트 -1은 뒤에서 첫번째 즉 pen,banana,orange리스트를 의미 그 안에서 2번째인 banana출력
+print(e[-1]) # -1이 어느 것인지 출력
+print(e[-2]) # 뒤에서 2번째인 100이 나온다.
+
+# 슬라이싱
+print(d[0:2]) # 0,1번째인 10,100만 출력
+print(e[2][1:3]) # 일단 두번째가 하나의 리스트니 그 안의 1번부터 2번까지 banana,orange출력
+
+# 연산
+print(c + d) # c리스트와 d리스트 합침. c리스트 앞에 뒤 append형식으로 d리스트 추가 중복제거없이 그냥 append
+print(c * 3) # c리스트 3번 곱셈연산 3번나옴
+print(str(c[0])+'hi') # c리스트의 0번째인 1과 hi를 더함. string형식을 쓰는 이유는 문자 형식으로 해야 더해져서.\
+print(str(c)+'hello') # c리스트와 문자열 합침.
+
+# 리스트 수정, 삭제
+c[0] = 77 # c리스트 0번의 값 1을 77로 변경
+print(c) # 0번째 값이 77로 바뀌는걸 알수있다.
+
+c[1:2] = [100, 1000, 1000] # 1번째 부분에 100~1000 삽입 원래 1번째 값은 삭제
+print(c)
+
+c[1:3] = [6,7,8,9]  # 1번째부터 3번째에 6~9삽입 원래 1,2번째 값은 삭제
+print(c)
+
+c[3] = ['a','b','c'] # 3번째 위치에 리스트 삽입
+print(c)
+
+del c[3] # del은 삭제 키워드. 3번째 위치의 a,b,c 리스트를 삭제한다.
+print(c)
+print('\n\n')
+
+# 리스트 함수
+y = [5,2,3,1,4]
+print(y)
+y.append(6) # append는 끝부분에 추가
+print(y)
+y.sort() # sort는 정렬 함수.
+print(y) 
+y.reverse() # reverse는 반대로 출력
+print(y)
+y.insert(2,7) # 2번 index에 7을 넣고싶다.
+print(y)
+y.remove(2) # 숫자 2를 찾아서 지운다.
+# y.remove(10) # remove함수에 넣은 숫자가 없다면 에러가 난다.
+print(y) 
+y.pop() # 
+print(y) # LIFO = last in frist out 마지막에 
+
+# 삭제 del , remove, pop
+
+# 튜플 (순서o, 중복o, 수정x, 삭제x) 리스트와는 수정, 삭제 불가
+# 프로그램상에 프로그래머가 의도적으로 변경 불가하게 만들 경우 튜플을 쓴다.
+
+a = () # 소괄호가 끝
+b = (1,)
+c = (1,2,3,4)
+d = (10,100,('a','b','c'))
+
+print(c[2])
+print(c[3])
+print(d[2][2])
+# del c[2] # 'tuple' object doesn't support item deletion
+# 위와같이 del을 써서 삭제 시도를 할 경우 저런 문구가 나온다.
+# 튜플은 삭제 불가하는 문구다.
+
+print(d[2:]) # d의 2부터 다나오게. 맨끝에는 ,가 들어감
+print(d[2][0:2]) # 2번 index에서 0부터 2까지 0,1 = a,b
+
+print(c + d) # 먼저 c 튜플이 나오고 그 뒤 d를 덧붙여서 출력
+print(c * 3) # c튜플 3번 나오게
+
+# 튜플 함수
+print('\n\n')
+z = (5,2,1,2,4)
+
+print(z)
+print(3 in z) # z튜플안에 3이 들어있느냐
+print(z.index(4)) # z인덱스안에 4번째가 무엇이냐
+print(z.index(5)) # 5번째는 없기 때문에 0
+print(z.count(2)) # z 튜플에서 2가 몇개나 있느냐 출력 2가 나와야함
