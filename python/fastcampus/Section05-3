@@ -65,11 +65,16 @@ q3 = ["갑", "을", "병", "정"]
 
 for i in q3[0:3]:
     print(i)
+q5 = [x for x in q3 if x != "정"]   # "정"만 빼고 q5에 집어넣는다.
+print(q5)
 
 # 7. 1부터 100까지 자연수 중 '홀수'만 한 라인으로 출력 하세요.
 
 for i in range(1,101,2):
     print(i,end =" ")
+print('\n\n')
+q6 = [x for x in range(1,101) if x % 2 !=0]
+print(q6)
     
 # 8. 아래 리스트 항목 중에서 5글자 이상의 단어만 출력하세요.
 print('\n')
@@ -87,7 +92,7 @@ count = 0
 
 for i in q5:
     if q5[count].islower() == True:
-        print(q5[count])
+        print(q5[count],end=" ")
     count +=1
 
 # 10. 아래 리스트 항목 중에서 소문자는 대문자로 대문자는 소문자로 출력하세요.
@@ -97,8 +102,19 @@ q6 = ["A", "b", "c", "D", "e", "F", "G", "h"]
 count = 0
 for i in q6:
     if  q6[count].islower() == True:
-        print(q6[count].upper())
+        print(q6[count].upper(),end =" ")
     elif q6[count].islower() == False:
-        print(q6[count].lower())
+        print(q6[count].lower(),end = " ")
     count+=1
-    
+
+# 리스트 컴프리헨션
+print("\n")
+a = [1,2,3,4,5,6,7,8,9,10,11,12] 
+print(a,'\n')
+number = []
+for n in range(1,13):
+    number.append(n)
+print(number,'\n')
+
+number2 = [x for x in range(1,13)] # range 내부적으로 작동, 1= 뒤의 x  이 x를 앞에 x에 넣고 다시 뒤의 range에서 할당받아와서 반복
+print(number2)
