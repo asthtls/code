@@ -1,0 +1,94 @@
+# Section 07-2
+# fastcampus
+# ubuntu jupyter notebook python 3.8.1
+# 2020 01 16
+
+# 클래스 상속, 다중상속
+
+# 예제1
+# 상속 기본
+# 슈퍼클래스(부모) 및 서브클래스(자식) -> 모든 속성, 메소드 사용 가능
+
+# 라면 -> 속성(종류, 회사, 맛, 면 종류, 라면 이름) 등 : 부모 클래스 생성
+
+# 예제1
+class Car:
+    """Parent Class""" # 이게 무슨 클래스라고 이름 정의
+    def __init__(self, tp, color): # 자동차 타입, 색
+        self.type = tp
+        self.color = color
+        
+    def show(self):
+        return "Car Class 'Show Method!'"
+    
+class BmwCar(Car):
+    """SUb Class"""
+    def __init__(self, car_name, tp, color): # 차 이름, 타입, 색
+        super().__init__(tp,color)
+        self.car_name = car_name
+    def show_model(self) -> None:
+        return "Your Car Name : %s" % self.car_name
+    
+class BenzCar(Car):
+    """SUb Class"""
+    def __init__(self, car_name, tp, color): # 차 이름, 타입, 색
+        super().__init__(tp,color)
+        self.car_name = car_name
+    def show_model(self) -> None:
+        return "Your Car Name : %s" % self.car_name
+    
+    def show(self): # 부모에게도 존재하는 메소드 선언
+        print(super().show())
+        return "Car Info: %s %s %s " % (self.car_name, self.type, self.color)
+    
+# 일반 사용
+model1 = BmwCar('520d', 'sedan', ' red')
+
+print(model1.color)  # Super 부모에서 가져옴
+print(model1.type) # sedan Super
+print(model1.car_name) # 520d Sub
+print(model1.show()) # Super
+print(model1.show_model()) # Sub
+print(model1.__dict__) # 부모에서 받은 것 또한 가져온다. 
+
+# Method Overriding (오버라이딩)
+model2 = BenzCar("220d", 'suv', 'black')
+
+print(model2.show()) # sub에 있는 show가 사용된걸 볼 수 있다.  이것이 오버라이딩 = 상속받은걸 내용을 바꿈
+
+
+# Parent Method Call
+model3 = BenzCar("350s", 'sedan', ' silver')
+print(model3.show()) # 오버라이딩 호출 , 부모의 것도 호출하고 싶다면 메소드에서 print(super().show())
+
+# Inheritance Info
+print(BmwCar.mro()) # 모든 클래스는 object클래스를 상속받는다. bmw는 car클래스를 상속받았다는걸 보여줌
+print(BenzCar.mro()) # 벤츠또한 Car클래스를 상속받았다는걸 보여줌 
+# mro 함수를 이용해 상속관계 볼 수 있다.
+
+# 예제 2
+# 다중 상속
+
+class X():
+    pass # 통과해줘. 나중에 코딩하겠다는 뜻.
+
+class Y():
+    pass
+class Z():
+    pass
+
+class A(X,Y): # 클래스 A는 X,Y를 상속받겠다.
+    pass
+
+class B(Y,Z):
+    pass
+
+class M(B,A,Z):  # 파이썬에서는 이렇게 다중 상속이 가능하다.
+    pass
+
+
+print(M.mro()) # M은 모든 클래스를 상속받았다는 것을 보여줌 , 하지만 너무 많은 상속은 복잡하게 만듬.
+print(A.mro()) # A는 X,Y를 상속받았다는 것을 보여준다.
+
+
+# 파이썬 자체가 얼마나 유연한 언어인지 보여주는 다중 상속이고, 너무 많은 상속
