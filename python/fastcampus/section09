@@ -1,0 +1,95 @@
+# Section 09
+# 파일 읽기, 쓰기
+# 읽기 모드 : r, 쓰기 모드(기존 파일 삭제) : w, 추가 모드 (파일 생성 또는 추가) : a
+# .. : 상대경로,  . :절대 경로
+
+# 파일 읽기
+# 예제1
+f = open('review.txt','r') # 파일을 열때는 open
+content = f.read()
+print(content)
+print(dir(f)) # f가 뭔지 확인
+# 반드시 close 리소스 반환
+f.close()
+
+print('예제 2-----------')
+# 예제2
+with open('review.txt','r') as f:
+    c = f.read()
+    print(c)
+#     print(list(c))
+    print(iter(c))
+    
+print("예제3--------------")
+
+# 예제3
+with open('review.txt','r')as f:
+    for c in  f:
+        print(c.strip())
+        
+print("예제 4---------------")
+
+# 예제 4
+with open('review.txt','r') as f:
+    content = f.read()
+    print(">", content) 
+    content = f.read()# 내용 없음 이유는 끝에 가서
+    print(">", content) 
+    
+print("\n예제 5------------------")
+
+# 예제 5
+with open('review.txt','r')as f:
+    line = f.readline()
+    while line:
+        print(line,end= ' #### ')
+        line = f.readline()
+        
+print("\n예제 6 ------------------")
+
+# 예제 6
+with open('review.txt','r') as f:
+    contents = f.readlines()
+    print(contents)
+    for c in contents:
+        print(c, end='*****')
+        
+print("\n예제 7 ------------------")
+
+# 예제 7
+score = []
+with open('score.txt','r') as f:
+    for line in f:
+        score.append(int(line))
+    print(score)
+
+print('Average: {:6.3}'.format(sum(score)/len(score))) # 6자리 소수점 3자리만
+
+# 파일 쓰기
+
+# 예제 1
+with open('text1.txt','w')as f:
+    f.write("Niceman\n")
+
+# 예제 2
+with open('text1.txt','a')as f: # 'a ' 기존 파일 추가
+    f.write("Goodman\n")
+    
+# 예제 3
+from random import randint
+
+with open('text1.txt2','w')as f:
+    for cnt in range(6):
+        f.write(str(randint(0, 50)))
+        f.write('\n')
+
+# 예제 4
+# writelines : 리시트 -> 파일로 저장
+with open('text3.txt','w') as f:
+    list = ['Lee\n','Kim\n','Cho']
+    f.writelines(list)
+
+# 예제 5
+with open('text4.txt','w')as f:
+    print('Test Contests1!', file=f)
+    print('Test Contests2!', file=f)
