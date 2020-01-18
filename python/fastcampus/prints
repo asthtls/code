@@ -1,0 +1,5 @@
+def ptr1():
+    print("I'm Niceboy")
+def ptr2():
+    print("I'm Goodboy")
+    
