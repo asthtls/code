@@ -1,0 +1,51 @@
+# Section 08 
+# fastcampus
+# ubuntu jupyter notebook python 3.8.1
+# 2020 01 17
+
+# 파이썬 모듈, 패키지
+# 상대 경로
+# .. : 부모 디렉토리
+# .  : 현재 디렉토리
+
+
+from fibonacci import Fibonacci
+
+Fibonacci.fib(300)
+
+print("ex2: ", Fibonacci.fib2(400))
+print("ex2: ", Fibonacci.title)
+
+# 사용2(클래스)
+from fibonacci import * # 권장 x
+
+FIbonacci.fib(500)
+
+print("ex2: ", Fibonacci.fib2(600))
+print("ex2: ", FIbonacci().title)
+
+# 사용3(클래스)
+
+from fibonacci import Fibonacci as fb
+
+fb.fib(1000)
+
+print("ex3: ", fb.fib2(1600))
+print("ex3: ", fb().title)
+
+# 사용 4(함수)
+import calculations as c
+print("ex4: ",c.add(10,100))
+print("ex4: ",c.mul(10,100))
+
+# 사용5(함수)
+from calculations import div as d # 내가 사용할 만큼만 가져오는 것이 베스트.
+
+print("ex5: ",int(d(100,10)))
+
+# 사용6(함수)
+import prints as p
+import builtins
+p.prt1()
+p.prt2()
+prnt(dir())
