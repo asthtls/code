@@ -1,0 +1,60 @@
+# Section 12-1
+# fastcampus
+# ubuntu jupyter notebook python 3.8.1
+# 2020 01 22
+# 파이썬 데이터베이스 연동(sqlite)
+# 테이블 생성 및 삽입
+
+import sqlite3
+import datetime
+
+# 삽입 날짜 생성
+now = datetime.datetime.now()
+print('now: ',now) # 현재 시간 출력 now 는 많이 쓰는 용어므로 알아두기
+
+nowDatetime = now.strftime("%Y-%m-%d %H:%M:%S")
+print("nowDatetime: ",nowDatetime) # 현재 시간 깔끔하게 출력
+
+
+# sqlite3
+print("sqlite3.version: ", sqlite3.version)
+print("sqlite3.sqite_version: ", sqlite3.sqlite_version)
+
+# DB 생성 & Auto Commit 
+# auto commit - 그때그때 바로 삽입,수정 적용하겠다.
+# Rollback - 삽입되기, 수정되기 전으로 되돌리겠다.
+conn = sqlite3.connect("datebase.db",isolation_level=None)
+
+# Cursor
+c = conn.cursor()
+print('Cursor Type: ', type(c))
+
+# 테이블 생성(Data Type : Text, NUMERIC, INTEGER, REAL, BLOB)
+c.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username text, email text,phone text, website text, regdate text)")
+
+
+# 데이터 삽입
+# c.execute("INSERT INTO users VALUES(1, 'LEE','as_thtls@nate.com','010-1111-1111','LEE.com', ?)",(nowDatetime,)) # ?자리에 nowDatetime을 직접 넣으면 문자열 에러
+# c.execute("INSERT INTO users(id, username, email, phone, website, regdate) VALUES(?,?,?,?,?,?)", (2,'KIM','KIM@Daum.net','010-2222-2222','KIM.com',nowDatetime))
+
+# Many 삽입(튜플, 리스트)
+userlist = (
+    (3, 'LEE', 'LEE@NAVER.COM', '010-5121-2151','LEE.com', nowDatetime),
+    (4, 'CHO', 'CHO@NATE.COM', '010-7777-7777','KIM.com', nowDatetime),
+    (5, 'YOO', 'YOO@google.com', '010-6666-6666', 'YOO.com',nowDatetime)
+)
+
+# c.executemany("INSERT INTO users(id, username, email, phone, website, regdate) VALUES(?,?,?,?,?,?)", userlist)
+# conn.rollback() # 롤백 , 처리되기 이전으로
+# con.commit() # 즉시 반영
+
+# 테이블 데이터 삭제
+# conn.execute("DELETE FROM users") 
+# print("user db deleted: ",conn.execute("DELETE FROM users").rowcount)
+
+# 커밋 : isolation_level = None 일 경우 자동 반영 (오토 커밋)
+# conn.commit()
+
+# conn.rollback()
+
+conn.close()
