@@ -1,0 +1,61 @@
+# 2020 02 08
+# 실제 최신 운영체제 이해 및 운영체제 총정리
+
+
+실제 운영체제 이해
+-운영체제 이해를 바탕으로 하는 실제 운영체제 설계 및 이해
+
+리눅스 운영체제
+-리눅스 커널(운영체제) +시스템 프로그램(쉘) + 응용 프로그램
+
+cpu - 스케쥴링
+ram - memory -paging -가상 메모리
+저장매체 = block devices 
+iodevice - 가상 파일 시스템
+
+쉘(shell):사용자와 컴퓨터 하드웨어 또는 운영체제간 인터페이스
+-사용자의 명령을 해석해서, 커널에 명령을 요청해주는 역할
+-관련된 시스템콜을 사용해서 프로그래밍이 작성
+종류
+-Bourne-Again Shell(bash) : GNU 프로젝트의 일환, 리눅스 거의 디폴트
+-Bourne Shell(sh)
+-C Shell(csh)
+-Korn Shell(ksh) : 유닉스에서 가장 많이 사용됨
+
+실제 운영체제 이해
+-process management
+    --응용 프로그램은 여러개의 process로 관리
+    --process scheduler
+        ---process실행,종료 관리
+        ---인터럽트 처리 관리
+        
+-memory management
+    --가상메모리
+        ---page 기반 메모리 관리
+-IO device Management
+    --VFS(Virtual File Syste)
+    --file,Device drivers, Network 관리
+-시스템 프로그램
+    --핵심은 쉘
+        ---bash
+        ---내부는 시스템콜을 호출하도록 구현
+    --각 프로그래밍 언어 /라이브러리/시스템콜
+        ---필요시 해당 운영체제의 시스템콜 호출
+        
+안드로이드 스마트폰
+리눅스 OS + 안드로이드 플랫폼
+-Linux Kernel +(Shell+Some basic programs) + Andorid Framework
+1. 응용 프로그램 (앱)
+2. 응용 프로그램 프레임워크(안드로이드 플랫폼)
+3. 안드로이드 런타임(javavm)
+4. 라이브러리 
+5. 리눅스 커널(쉘,리눅스 pc,쉘(터미널)리눅스 명령)
+*리눅스 OS를 쓰는 이유 따로 OS를 만들기 위해서는 시간이 너무 오래걸리기 때문에 리눅스 커널 선택        
+        
+*IOT(사물인터넷 Internet of Things)
+    -각종 사물에 센서와 통신 기능을 내장하여 인터넷에 연결하는 기술
+-iot관련 os   - 초소형 기기의 경우, OS 기능 최소화
+-TinyOS 예
+    --멀티태스킹, 보호모드, 가상메모리, 파일시스템 X
+   
+        
