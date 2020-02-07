@@ -1,0 +1,46 @@
+# 2020 01 30
+# 프로세스 구조
+# 프로레스 구조와 컴퓨터 구조
+# 프로세스 구조와 힙
+# 프로세스 구조와 스택 오버플로우
+
+
+프로세스는 일반적으로 어떻게 구성되어 있는가?
+    -text(CODE): 코드
+    -data:변수/초기화된 데이터
+    -stack:임시 데이터(함수 호출, 로컬 변수등)
+    -heap:코드에서 동적으로 만들어지는 데이터
+    
+PC(Program Counter) + SP(Stack Pointer)
+
+EAX = 결과값 ,return
+
+EBP = 
+
+CODE = 전체 코드가 들어감
+data = 변수, 초기화된 데이터가 들어가 있는다.
+stack = 임시 데이터 = int data; 이런 형식
+HEAP = data = (int*)malloc(sizeof(int)) 
+
+stack = data = 1000h
+heap =       1
+
+프로세스 구조:stack,heap,data(bss,data),text(code)
+
+data
+-BSS -> 초기화되지 않은 전역변수
+-DATA -> 초기값이 있는 전역변수
+
+int global data1; - 초기값이 없으므로 BSS
+int global data2 = 1; - 초기값이 있으므로 DATA
+
+*스택 오버플로우 : 주로 해커들의 공격에 활용되었음
+*프로세스 구조 이용
+
+str[6] = str[0]~[5]
+aaaaaa = 0~5까지 맞게 들어감
+하지만 
+aaaaaacc = 0~5까지의 범위를 넘기 때문에 오버플로우가 발생 그 밑의 데이터를 침범해 데이터값을 c로 바꾸는 결과가 나타남
+
+
+
