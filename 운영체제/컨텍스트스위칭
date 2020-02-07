@@ -1,0 +1,57 @@
+# 2020 01 31
+# 컨텍스트 스위칭 원리
+
+프로세스와 컨텍스트 스위칭
+-PC(Program Counter) + SP(Stack Pointer)
+
+pcb = 프로세스 제어 블록
+
+PC, SP는 Process Control Block에 저장한다.
+Process Context Block 이라고도 한다.
+1. Process ID
+2. Register 값(PC,SP등)
+3. Scheduling Info(Process State)
+4. Memory Info(메모리 사이즈 limit)
+
+PCB: 프로세스가 실행중인 상태를 캡쳐/구조화해서 저장
+
+PCB:리눅스 예
+1. Process ID
+2. Register 값(PC,SP등)
+3. Scheduling Info(Process State)
+4. Memory Info(메모리 사이즈 limit)
+
+정리
+-프로세스 구조
+    --Stack, HEAP, DATA(BSS,DATA) TEXT(CODE)
+-PCB
+    --프로세스 상태 정보- PC,SP,메모리,스케쥴링 정보등
+    
+    1.컨텍스트 스위칭 - 어셈블리어 작성
+    -PC,SP
+    
+# 2020 01 31
+# 컨텍스트 스위칭 개념 정리
+
+프로세스와 컨텍스트 스위칭
+-Context Switching(문맥 교환)
+    --CPU에 실행할 프로세스를 교체하는 기술
+    
+1. 실행 중지할 프로세스 정보를 해당 프로세스의 PCB에 업데이트해서, 메인 메모리에 저장
+2. 다음 실행할 프로세스 정보를 메인 메모리에 있는 해당 PCB 정보(PC,SP)를 CPU의 레지스터에 넣고, 실행
+
+*디스패치(dispatch):ready상태의 프로세스를 running 상태로 바꾸는 것
+
+
+
+*초기 컴퓨터 프로그램들은 어셈블리어로 작성
+    --서로 다른 CPU 아키텍처가 등장할 때마다 매번 똑같은 프로그램 작성
+    --어셈블리어로는 프로그램 작성 속도가 매우 떨어짐
+*컴파일러 등장
+    --CPU 아키텍처에 따라서는 컴파일러 프로그램만 만들면 됨, 기존 코드는 재작성할 필요 없음
+    --그러나, 어셈블리어로 작성한 코드보다는 속도가 떨어질 수 있음
+어셈블리어 = 속도는 빠르지만, 이식성이 떨어진다.
+컴파일러 = 어셈블리어보다 속도는 떨어지지만, 이식성이 높아짐.
+
+
+
